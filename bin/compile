@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+indent() {
+	sed -u 's/^/       /'
+}
+
+BUILD_DIR=$1
+CACHE_DIR=$2
+ENV_DIR=$3
+
+cd $BUILD_DIR
+
+echo "-----> Running DocumentJS"
+node_modules/.bin/documentjs | indent
